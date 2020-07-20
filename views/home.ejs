@@ -1,14 +1,15 @@
 <%- include('partials/header'); -%>
 
 <h1>Home</h1>
-    <% posts.forEach(function(post){ %>
-        
-
-            <h1><%=post.Title%></h1> 
-            <p><%=post.content.substring(0,50)+"..."%> <a href="/posts/<%= post.Title %> ">Read More</a></p>
-
+    <% foundItems.forEach(function(post){ %>
+        <form action="/delete" method="post">
             
-        <% console.log(post.Title);%>
+            <h1><%=post.title%></h1> 
+            <p><%=post.content.substring(0,50)+"..."%> <a href="/posts/<%= post._id %> ">Read More</a></p>
+            <button class="btn btn-light" name='del' value="<%=post._id%>" type="submit">Remove post</button>
+            
+        </form>
+            
 
  <%})%>
 <%- include('partials/footer'); -%>
